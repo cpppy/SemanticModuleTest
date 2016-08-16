@@ -27,20 +27,19 @@ int WorkingFunc(string & sConfig,Json::Value &tmpJson,int loopNum);
 int Test_WorkingFunc(std::string sQuery,int actionType,int loopNum);
 //bool DumpToFile(std::string &sContent,int nLength,std::string sFileName);
 string readDefaultInfo(Json::Value &root,ISMaster::InParas& in);
-string writeIntoProto(Json::Value &root,ISMaster::InParas& in,vector<std::string> strs);   // add*******
+string writeIntoProto(Json::Value &root,ISMaster::InParas& in,vector<std::string> strs);  
 
 void SetActionType(ISMaster::InParas& in,int type);
 string getDelSession(Json::Value& root);
 string getOrderLiuLiang(Json::Value& root);
-string getOrderLiuLiang2(Json::Value& root,vector<std::string> strs);       // add*******
+string getOrderLiuLiang2(Json::Value& root,vector<std::string> strs);   
 string getDaoHang(Json::Value& root);
 string getReply_oprional(Json::Value& root);
 string getReply_Y(Json::Value& root);
 
-void split(string str,vector<string>& res);                // add*******
-string trim(const string& str);                                  // add*******
-string deln(string str);                                            // add*******
-
+void split(string str,vector<string>& res);            
+string trim(const string& str);                           
+string deln(string str);                                  
 
 class cInparas
 {
@@ -74,13 +73,7 @@ public:
 		cout<<"channeltype : "<<channeltype<<endl;
 		cout<<"actiontype : "<<actiontype<<endl;
 	}
-	
 };
-
-
-
-
-
 
 int main(int argc,char **argv)
 {
@@ -128,8 +121,6 @@ int main(int argc,char **argv)
 	queryInfile.close();  
 	cout<< "--------------------------reading queryInput.txt finished! ---------------------------"<<endl; 
 	
-
-	
 	string operator_type=argv[1];
 	int nFileLength = 0;
 	char *pConfigBuffer = getFileContents("../Cfg/IntelligentAssistant.cfg",&nFileLength);
@@ -174,9 +165,6 @@ int main(int argc,char **argv)
 	Json::Reader reader;
 	Json::Value root;
 	string protobuf;
-	
-	
-	
 
 	/*
 	if(reader.parse(YeWuConfig.c_str(),root))
@@ -271,13 +259,10 @@ int main(int argc,char **argv)
 			queryOutfile<<qOut[i]<<endl;
 		}
 		queryOutfile.close();
-		
-		
+	
 		Uninit();
 		return 0;
-		
 	}
-	
 	
 	else if(argc==4 && operator_type=="thread")
 	{
@@ -338,7 +323,6 @@ int main(int argc,char **argv)
 	printf("%s\r\n",sResult.c_str());
 	cout << "--------------------------------------------------" <<endl;
 #endif
-
 
 	return 0;
 }
@@ -836,7 +820,6 @@ string trim(const string& str)  //delete the space of front and tail
     return str.substr(pos);
 }
 
-
 void split(string str,vector<string>& res)
 {
     if(str.empty())
@@ -858,7 +841,6 @@ void split(string str,vector<string>& res)
         {
             ss+=str[i];
         }
-
     }
 }
 
